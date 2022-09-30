@@ -1,6 +1,7 @@
 package com.koolade446.mc120.registries;
 
 import com.koolade446.mc120.MC120;
+import com.koolade446.mc120.blocks.DeepDarkPortalBlock;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -25,5 +26,5 @@ public class Registry {
     }
 
     //Register stuff here
-
+    public static final RegistryObject<Block> DEEP_DARK_PORTAL = BLOCK.register("deep_dark_portal", DeepDarkPortalBlock::new);
 }
