@@ -10,11 +10,12 @@ import net.minecraftforge.fml.common.Mod;
 public class ClientEventHandler {
     @Mod.EventBusSubscriber(modid = MC120.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.FORGE)
     public static class ClientForgeEventHandler {
-        //Nothing here yet
+
     }
 
     @Mod.EventBusSubscriber(modid = MC120.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class ClientModEventHandler {
+
         @SubscribeEvent
         public static void registerGuiOverlay(RegisterGuiOverlaysEvent event) {
             event.registerAboveAll("dd_portal", DeepDarkPortalOverlay.HUD_PORTAL_OVERLAY);

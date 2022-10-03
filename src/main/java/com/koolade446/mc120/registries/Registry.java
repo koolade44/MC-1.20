@@ -15,7 +15,6 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 public class Registry {
-    public static final Map<String, RegistryObject<?>> registeredObjects = new HashMap<>();
 
     public static final DeferredRegister<Item> ITEM = DeferredRegister.create(ForgeRegistries.ITEMS, MC120.MODID);
     public static final DeferredRegister<Block> BLOCK = DeferredRegister.create(ForgeRegistries.BLOCKS, MC120.MODID);
@@ -27,4 +26,5 @@ public class Registry {
 
     //Register stuff here
     public static final RegistryObject<Block> DEEP_DARK_PORTAL = BLOCK.register("deep_dark_portal", DeepDarkPortalBlock::new);
+
 }

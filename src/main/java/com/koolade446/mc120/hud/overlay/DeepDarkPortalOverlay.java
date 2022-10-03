@@ -8,6 +8,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiComponent;
 import net.minecraft.client.gui.screens.Overlay;
 import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.gui.overlay.ForgeGui;
 import net.minecraftforge.client.gui.overlay.IGuiOverlay;
@@ -22,10 +23,11 @@ public class DeepDarkPortalOverlay {
        height = Minecraft.getInstance().getWindow().getGuiScaledHeight();
 
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
-        RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
+        RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 0.4f);
         RenderSystem.setShaderTexture(0, PORTAL_OVERLAY);
-        if (ClientPortalData.getIsInPortal()) {
+        if (ClientPortalData.getIsInPortal() && ClientPortalData.getPlayerPortalCoolDownTime() >= System.currentTimeMillis()) {
             GuiComponent.blit(poseStack, x, y, x, y, width, height, width, height);
         }
+        else if (ClientPortalData.getPlayerPortalCoolDownTime() < System.currentTimeMillis()) ClientPortalData.setIsInPortal(false);
     });
 }

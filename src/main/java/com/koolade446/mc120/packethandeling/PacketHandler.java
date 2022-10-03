@@ -31,6 +31,12 @@ public class PacketHandler {
                 .encoder(PlayerPortalPositionS2C::toBytes)
                 .consumerMainThread(PlayerPortalPositionS2C::handle)
                 .add();
+
+        net.messageBuilder(PlayerPortalCoolDownS2C.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(PlayerPortalCoolDownS2C::new)
+                .encoder(PlayerPortalCoolDownS2C::toBytes)
+                .consumerMainThread(PlayerPortalCoolDownS2C::handle)
+                .add();
     }
 
     public static <MSG> void sendToPlayer(MSG message, ServerPlayer player) {
